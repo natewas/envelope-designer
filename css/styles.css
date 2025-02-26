@@ -321,6 +321,7 @@ body {
 
 .shadow {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding:25px;
 }
 
 /* Project Grid Section */
@@ -731,11 +732,27 @@ button {
     padding: 10px 15px;
     font-size: 1rem;
     border: none;
-    background: #0073e6;
+    background: #3f3f3f;
     color: white;
     border-radius: 5px;
     cursor: pointer;
     user-select: none; /* Prevent text selection */
+        display: inline-flex;       /* Ensures buttons behave like block elements */
+    width: 250px;               /* Set the same width for all buttons */
+    height: 50px;               /* Set the same height for all buttons */
+    text-align: center;         /* Centers the text inside the button */
+    /*line-height: 50px;*/          /* Vertically aligns the text (matches height) */
+    padding: 0;                 /* Remove extra padding */
+    background-color: #333;     /* Background color */
+    color: white;               /* Text color */
+    font-size: 1rem;            /* Font size */
+    border-radius: 75px;         /* Rounded corners (optional) */
+    border: none;               /* Remove border */
+    cursor: pointer;            /* Change cursor to pointer on hover */
+    transition: background 0.3s ease; /* Smooth hover effect */
+    align-items:center;
+    justify-content: center;  /* Centers text horizontally */
+
 }
 
 button:hover {
@@ -781,12 +798,7 @@ button:hover {
     flex-direction: column;
 }
 
-label {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #2C3E50;
-    margin-bottom: 0.5rem;
-}
+
 
 input, textarea {
     font-size: 1rem;
@@ -802,7 +814,148 @@ input, textarea {
     margin-bottom: 1rem; /* Add spacing between elements */
 }
 
-label {
+.project-container label {
+    display: block;
     font-weight: bold;
-    margin-bottom: 0.3rem;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #2C3E50;
+    padding: 8px 0; /* Adjust padding */
+}
+
+/* Target selects inside project-container */
+.project-container select {
+    width: 100%;  /* Makes dropdowns full width */
+    padding: 10px;  /* Adds spacing inside */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Ensure labels and selects are inside .form-group */
+.project-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Spacing between label and select */
+    margin-bottom: 1rem;
+}
+
+
+.main-container {
+    display: flex;  /* Use flex instead of inline-flex */
+    justify-content: center; /* Center it horizontally */
+    align-items: flex-start; /* Align items at the top */
+    gap: 50px; /* Space between form & preview */
+    max-width: 1200px; /* Ensures content doesn't stretch too much */
+    margin: 0 auto; /* Centers the whole container */
+}
+
+.project-container {
+    flex: 1;  /* Makes it take equal width */
+    width: 800px;  /* Prevents excessive stretching */
+}
+
+
+
+
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure it's above everything */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Push everything below fixed navbar */
+body {
+    padding-top: 60px; /* Adjust to match navbar height */
+}
+.hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;  /* Extra spacing to avoid overlap */
+    background-color: #f8f8f8;  /* Light background for visibility */
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;  /* Ensure spacing below H1 */
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 50px auto 0;  /* Added margin at the top to prevent overlap */
+}
+
+/* Envelope Preview Container */
+.envelope {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border: 2px solid #ddd;
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Recipient Address */
+.recipient {
+    position: absolute;
+    bottom: 80px; /* Adjust based on PDF offsets */
+    left: 80px; /* ✅ Adjusted to match PDF left margin */
+    text-align: left;
+    font-size: 16px;
+    color:#000000;
+}
+
+
+/* Return Address */
+.return-address {
+    font-size: 12px;
+    text-align: left;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    display: none; /* Hidden until user enables "Include Return Address" */
+}
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Adds space between title and preview */
+}
+
+.preview-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.envelope-preview {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    border: 2px solid #ddd;
+    background-color: white;
 }
